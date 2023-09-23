@@ -1,6 +1,6 @@
 let drawDimention = 80;
 let seed = 10;
-let startDate = new Date(1968,12,9,12);
+let startDate = new Date(1968,11,9,12);
 let size = 0.6;
 
 let bits = [];
