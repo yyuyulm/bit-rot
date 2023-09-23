@@ -76,6 +76,7 @@ function setup() {
   displayDimention = size * min(windowWidth,windowHeight);
   cnv = createCanvas(displayDimention, displayDimention);
   cnv.id('sketch');
+  cnv.parent("sketchparent");
 
   noSmooth();
   frameRate(1);

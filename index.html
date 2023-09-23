@@ -12,16 +12,23 @@
       background-color: #FFFFFF;
     }
     main {
-      height: 100vh;
-      width: 100vw;
+      width: 100%;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .artbox {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
     .statementbox {
-      width: 50vw;
-      margin: auto;
+      width: 50%;
+      margin: none;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,29 +39,32 @@
       line-break: auto;
     }
   </style>
+  <script src="p5.min.js"></script>
+  <script src="sketch.js"></script>
   </head>
 
 <body>
   <main>
-    <p align="center">
-      <span>Rendered at</span>
-      <span id="datetime"></span>
+    <div class = "artbox">
+      <div id="sketchparent"></div>
       <br>
-      <span>Bit rots:</span>
-      <span id="rots"></span>
-      <span>times</span>
-    </p>
-    <p align="center">
+      <br>
+      <p align="center">
       <span>#000000 Square</span>
-    </p>
-    <br>
-    <br>
-  </main>
-  <div class = "statementbox">
-    <p class = "statement">"#000000" Square is a mutable generative painting that explores the concept of decay and aging in a digital native sense. Inspired by the decay can cracking of the painting Black Square by Kazimir Malevich, #000000 square begins as a black square sized 80 * 80 pixels (displayed as 79.5 * 79.5, in accordance with the dimension of Black Square in centimeters), which are encoded as 153600 zero bits, (80*80 pixels * 3 color channels * 8 bits per color value) and displayed through bitmapping. Every day, a random bit would flip to its opposite (a process called bit-rot in digital storage). Resulting in a color change of the corresponding pixel, adding artifacts of decaying to the painting. Additionally, the randomization algorithm used is computationally expensive and thus it would take longer to compute the painting as it ages. The initial date of the painting is set to December 9, 1968, the date of the demonstration of the oN-Line System (NSL), which is the basis of modern personal computers and the first commercial prototype that implements bitmapping for image display. The project is written with p5.js and hosted through GitHub Pages.</p>
+      </p>
+      <p align="center">
+        <span>Rendered at</span>
+        <span id="datetime"></span>
+        <br>
+        <span>Bit rots:</span>
+        <span id="rots"></span>
+        <span>times</span>
+      </p>
+    </div>
+    <div class = "statementbox">
+      <p class = "statement">"#000000" Square is a mutable generative painting that explores the concept of decay and aging in a digital native sense. Inspired by the decay can cracking of the painting Black Square by Kazimir Malevich, #000000 square begins as a black square sized 80 * 80 pixels (displayed as 79.5 * 79.5, in accordance with the dimension of Black Square in centimeters), which are encoded as 153600 zero bits, (80*80 pixels * 3 color channels * 8 bits per color value) and displayed through bitmapping. Every day, a random bit would flip to its opposite (a process called bit-rot in digital storage). Resulting in a color change of the corresponding pixel, adding artifacts of decaying to the painting. Additionally, the randomization algorithm used is computationally expensive and thus it would take longer to compute the painting as it ages. The initial date of the painting is set to December 9, 1968, the date of the demonstration of the oN-Line System (NSL), which is the basis of modern personal computers and the first commercial prototype that implements bitmapping for image display. The project is written with p5.js and hosted through GitHub Pages.</p>
   </div>
-  <script src="p5.min.js"></script>
-  <script src="sketch.js"></script>
+  </main>
 </body>
 
 </html>
