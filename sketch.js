@@ -14,6 +14,8 @@ let currentSeed;
 let pixelCount = drawDimention**2;
 let intCount = pixelCount*3;
 let bitCount = intCount*8;
+let timetext
+let rottext
 
 function iniBits(){
   for(let i=0; i < bitCount; i++){
@@ -30,6 +32,13 @@ function getRotInteration(){
   currentDate = new Date(year(),month(),day(),hour(),minute(),second(),millis());
   let mili = currentDate.getTime()-startDate.getTime();
   rotIteration = mili/86400000;
+}
+
+function updateText() {
+  currentDateTime = currentDate.toLocaleString();
+  timetext.elt.textContent = currentDateTime;
+  rots = floor(rotIteration).toLocaleString();
+  rottext.elt.textContent = rots;
 }
 
 function rotBit(){
@@ -75,6 +84,9 @@ function setup() {
   
   img = createImage(drawDimention,drawDimention);
   img.loadPixels();
+
+  timetext = select('#datetime')
+  rottext = select('#rots')
 }
 
 function draw() {
@@ -87,6 +99,7 @@ function draw() {
   bitsToInts();
   drawBits();
   image(img,0,0,displayDimention,displayDimention, 0.25, 0.25, 79.5, 79.5);
+  updateText();
 }
 
 function windowResized() {
