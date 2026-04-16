@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 100%;
+}
+
+.artbox {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+#art {
+  display: block;
+}
+
+.title,
+.meta,
+.statement {
+  margin: 0;
+  text-align: center;
+}
+
+.meta {
+  line-height: 1.9;
+}
+
+.statementbox {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem 4rem;
+}
+
+.statement {
+  max-width: 70ch;
+  line-height: 2;
+}
+
+@media (max-width: 720px) {
+  .artbox {
+    gap: 1rem;
+  }
+
+  .statement {
+    line-height: 1.8;
+  }
+}

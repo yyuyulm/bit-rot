@@ -1,60 +1,20 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#000000</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-      background-color: #FFFFFF;
-    }
-    main {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .artbox {
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .statementbox {
-      width: 50%;
-      margin: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .statement {
-      line-height: 2;
-      line-break: auto;
-    }
-  </style>
-  <script src="p5.min.js"></script>
-  <script src="sketch.js"></script>
-  </head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
 
 <body>
   <main>
-    <div class = "artbox">
-      <br>
-      <br>
-      <div id="sketchparent"></div>
-      <br>
-      <br>
-      <p align="center">
-      <span>#000000 Square</span>
-      </p>
-      <p align="center">
+    <section class="artbox">
+      <canvas id="art" aria-label="#000000 Square bit-rot rendering"></canvas>
+      <p class="title">#000000 Square</p>
+      <p class="meta">
         <span>Rendered at</span>
         <span id="datetime"></span>
         <br>
@@ -62,10 +22,10 @@
         <span id="rots"></span>
         <span>times</span>
       </p>
-    </div>
-    <div class = "statementbox">
-      <p class = "statement">"#000000" Square is a mutable generative painting that explores the concept of decay and aging in a digital native sense. Inspired by the decay can cracking of the painting Black Square by Kazimir Malevich, #000000 square begins as a black square sized 80 * 80 pixels (displayed as 79.5 * 79.5, in accordance with the dimension of Black Square in centimeters), which are encoded as 153600 zero bits, (80*80 pixels * 3 color channels * 8 bits per color value) and displayed through bitmapping. Every day, a random bit would flip to its opposite (a process called bit-rot in digital storage). Resulting in a color change of the corresponding pixel, adding artifacts of decaying to the painting. Additionally, the randomization algorithm used is computationally expensive and thus it would take longer to compute the painting as it ages. The initial date of the painting is set to December 9, 1968, the date of the demonstration of the oN-Line System (NSL), which is the basis of modern personal computers and the first commercial prototype that implements bitmapping for image display. The project is written with p5.js and hosted through GitHub Pages.</p>
-  </div>
+    </section>
+    <section class="statementbox">
+      <p class="statement">"#000000" Square is a mutable generative painting that explores the concept of decay and aging in a digital native sense. Inspired by the decay can cracking of the painting Black Square by Kazimir Malevich, #000000 square begins as a black square sized 80 * 80 pixels (displayed as 79.5 * 79.5, in accordance with the dimension of Black Square in centimeters), which are encoded as 153600 zero bits, (80*80 pixels * 3 color channels * 8 bits per color value) and displayed through bitmapping. Every day, a random bit would flip to its opposite (a process called bit-rot in digital storage). Resulting in a color change of the corresponding pixel, adding artifacts of decaying to the painting. Additionally, the randomization algorithm used is computationally expensive and thus it would take longer to compute the painting as it ages. The initial date of the painting is set to December 9, 1968, the date of the demonstration of the oN-Line System (NSL), which is the basis of modern personal computers and the first commercial prototype that implements bitmapping for image display. The project is written in vanilla HTML, CSS, and JavaScript and hosted through GitHub Pages.</p>
+    </section>
   </main>
 </body>
 
