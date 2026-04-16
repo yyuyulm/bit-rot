@@ -9,6 +9,8 @@ const bitCount = intCount * 8;
 
 const bits = new Uint8Array(bitCount);
 const ints = new Uint8Array(intCount);
+let currentSeed = seed;
+let appliedRots = 0;
 
 const canvas = document.getElementById('art');
 const ctx = canvas.getContext('2d', { alpha: false });
@@ -37,17 +39,26 @@ function bitToInt(offset) {
   return value;
 }
 
-function renderArt(now) {
-  bits.fill(0);
+function rot(targetRots) {
+  if (targetRots < appliedRots) {
+    bits.fill(0);
+    currentSeed = seed;
+    appliedRots = 0;
+  }
 
-  const rotIteration = (now.getTime() - startDate.getTime()) / 86400000;
-  let currentSeed = seed;
-
-  for (let i = 0; i < rotIteration; i += 1) {
+  while (appliedRots < targetRots) {
     const rand = myRand(currentSeed) * bitCount;
     bits[Math.floor(rand)] ^= 1;
     currentSeed = rand;
+    appliedRots += 1;
   }
+}
+
+function renderArt(now) {
+  const rotIteration = (now.getTime() - startDate.getTime()) / 86400000;
+  const targetRots = Math.max(0, Math.floor(rotIteration));
+
+  rot(targetRots);
 
   for (let i = 0; i < intCount; i += 1) {
     ints[i] = bitToInt(i * 8);
@@ -70,7 +81,7 @@ function renderArt(now) {
   ctx.drawImage(sourceCanvas, 0, 0, drawDimension, drawDimension, 0, 0, canvas.width, canvas.height);
 
   datetimeEl.textContent = now.toLocaleString();
-  rotsEl.textContent = Math.floor(rotIteration).toLocaleString();
+  rotsEl.textContent = targetRots.toLocaleString();
 }
 
 function resizeCanvas() {
